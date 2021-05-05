@@ -1,0 +1,57 @@
+Package: fagin2
+Type: Package
+Title:  Annotate Orphan Genes
+Version: 2.0.0
+Author: Jing Li, Zebulun Arendsee
+Maintainer: Jing Li <jingli@iastate.edu>
+Description: A pipeline for the classification of orphans into origin classes using a
+    syntenic filter. This work is funded by NSF grant IOS-1546858.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Depends: R (>= 3.4.0)
+Imports:
+    BiocParallel,
+    Biostrings,
+    CNEr (>= 1.20.0),
+    GenomeInfoDb,
+    GenomicFeatures,
+    GenomicRanges,
+    IRanges,
+    Rsamtools,
+    L1pack,
+    S4Vectors,
+    rtracklayer,
+    ORFik (>= 1.4.1),
+    ape,
+    data.tree,
+    devtools,
+    dplyr,
+    fitdistrplus,
+    glue,
+    magrittr,
+    methods,
+    readr,
+    rlang (>= 0.4.2),
+    stringr,
+    synder (>= 0.27.2),
+    tibble,
+    tidyr,
+    yaml,
+    openxlsx
+Remotes:
+    arendsee/synder,
+    JokingHero/ORFik
+Suggests:
+    testthat,
+    covr,
+    knitr,
+    rmarkdown,
+    ggplot2,
+    reshape2,
+    limma,
+    XLConnect
+VignetteBuilder: knitr
+
+    

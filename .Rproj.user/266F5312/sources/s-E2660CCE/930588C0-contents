@@ -1,8 +1,0 @@
-
-.label <- function(label, ...){
-  label <- if(is.null(label)){
-    ""
-  } else {
-    glue::glue("In {label}: ")
-  }
-}

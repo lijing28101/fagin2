@@ -84,6 +84,7 @@ run_fagin_parallel <- function(con, cores=16){
 
   }
 
+  final_result
   stopCluster(cl)
 
 }

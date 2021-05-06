@@ -42,8 +42,7 @@ Imports:
     yaml,
     openxlsx
 Remotes:
-    arendsee/synder,
-    JokingHero/ORFik
+    arendsee/synder
 Suggests:
     testthat,
     covr,

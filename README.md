@@ -198,12 +198,23 @@ get_yeast_config <- function(){
 con <- get_yeast_config() # create revised configuration
 ```
 
-This will need to be tailored to your specific needs. To run the full fagin analysis, call
+## Running fagin
+
+1. Load input genome sequence and GFF file for each species, then processing and summarize the input data (save as `[species_name]_data.rds` for reuse).
+
+2. Do alignment and comparison for each pair of focal and target species (save as `[focal_species]-[target_species].rds` for reuse)
+
+3. Summarize the comparison and export as xlsx file for each focal species (also save as `[focal_species]_result.rds`)
 
 ```R
 # con is your configuration object
-m <- run_fagin(con)
+# overwrite.result: whether rerun the summarize step for each focal species
+# overwrite.result=TRUE, when you add new target species in con for comparison
+# overwrite.result=FALSE, only when you add new focal species, but not add new target species for previous focal
+m <- run_fagin(con, overwrite.result=T)
 ```
+
+**Note: Fgin will save the input data for each individual species, and pair of focal-target comparison as rds file for reuse. `run_fagin` will skip to load input data or pairwise comparison if the rds file already existed in the archive dir. You should delete the rds file for a specific species or pairwise comparison if you want to re-analysis that step.**
 
 ## Output
 

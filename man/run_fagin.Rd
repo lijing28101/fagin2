@@ -4,10 +4,12 @@
 \alias{run_fagin}
 \title{Run fagin analysis}
 \usage{
-run_fagin(con)
+run_fagin(con, overwrite.result = TRUE)
 }
 \arguments{
 \item{con}{configuration}
+
+\item{overwrite.result}{a logical variable indicating whether you want to re-summarize the comparison if result already existed in dir}
 }
 \value{
 a list of result for each pairwise of focal and target species and save result as excel file

@@ -1,6 +1,4 @@
-#' @importFrom doParallel registerDoParallel
-#' @importFrom parallel makeCluster stopCluster
-#' @importFrom foreach foreach "%dopar%" "%:%"
+#' @import doParallel
 #'
 utils::globalVariables(c("%dopar%","%:%"))
 NULL

@@ -214,7 +214,7 @@ con <- get_yeast_config() # create revised configuration
 m <- run_fagin(con, overwrite.result=T)
 ```
 
-**Note: Fgin will save the input data for each individual species, and pair of focal-target comparison as rds file for reuse. `run_fagin` will skip to load input data or pairwise comparison if the rds file already existed in the archive dir. You should delete the rds file for a specific species or pairwise comparison if you want to re-analysis that step.**
+**Note: Fagin will save the input data for each individual species, and pair of focal-target comparison as rds file for reuse. `run_fagin` will skip to load input data or pairwise comparison if the rds file already existed in the archive dir. You should delete the rds file for a specific species or pairwise comparison if you want to re-analysis that step.**
 
 ## Output
 

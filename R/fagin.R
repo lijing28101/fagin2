@@ -10,16 +10,17 @@
 #' @importFrom rtracklayer readGFF
 #' @importFrom stats quantile median sd density
 #' @importFrom CNEr first second GRangePairs
-#' @import dpylr
-#' @import Biostrings
-#' @import Rsamtools
-#' @import GenomicRanges
-#' @import GenomicFeatures
-#' @import IRanges
-#' @import synder
-#' @import S4Vectors
-#' @import openxlsx
-#' @import BiocGenerics
+#' @importFrom magrittr is_greater_than set_names
+#' @importFrom dplyr group_by summarize mutate select filter arrange rename
+#' @importFrom Biostrings subseq vcountPattern alphabetFrequency pairwiseAlignment reverseComplement pattern subject translate writeXStringSet
+#' @importFrom Rsamtools scanFa getSeq indexFa FaFile
+#' @importFrom GenomicRanges ranges seqnames findOverlaps GRanges strand seqinfo
+#' @importFrom GenomicFeatures transcripts cds exons makeTxDbFromGRanges cdsBy extractTranscriptSeqs exonsBy
+#' @importFrom IRanges reverse IRanges
+#' @importFrom synder read_synmap search flag_summary as_gff
+#' @importFrom S4Vectors queryHits metadata from to
+#' @importFrom openxlsx createWorkbook addWorksheet writeData saveWorkbook
+#' @importFrom BiocGenerics score relist
 #'
 NULL
 

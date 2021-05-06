@@ -1,4 +1,4 @@
-#' @importFrom methods isClass new
+#' @importFrom methods isClass new as
 #' @importFrom data.tree as.Node
 #' @importFrom rlang .data
 #' @importFrom yaml yaml.load
@@ -8,9 +8,9 @@
 #' @importFrom glue glue
 #' @importFrom readr read_table
 #' @importFrom rtracklayer readGFF
-#' @importFrom stats quantile median sd density
+#' @importFrom stats quantile median sd density p.adjust
 #' @importFrom CNEr first second GRangePairs
-#' @importFrom magrittr is_greater_than set_names
+#' @importFrom magrittr is_greater_than set_names "%>%" "%T>%"
 #' @importFrom dplyr group_by summarize mutate select filter arrange rename
 #' @importFrom Biostrings subseq vcountPattern alphabetFrequency pairwiseAlignment reverseComplement pattern subject translate writeXStringSet
 #' @importFrom Rsamtools scanFa getSeq indexFa FaFile
@@ -21,7 +21,9 @@
 #' @importFrom S4Vectors queryHits metadata from to
 #' @importFrom openxlsx createWorkbook addWorksheet writeData saveWorkbook
 #' @importFrom BiocGenerics score relist
+#' @importFrom utils head tail
 #'
+utils::globalVariables(c("%>%", ".", "%T>%"))
 NULL
 
 #' Run fagin analysis

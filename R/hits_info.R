@@ -24,7 +24,7 @@ get_alignment_table <- function(xs){
 #' @export
 #' @return data frame for query gene position
 get_query_position <- function(dat){
-  a <- as.data.frame(dat)
+  a <- BiocGenerics::as.data.frame(dat)
   data.frame(
     seqid=a$attr,
     qchrom=a$seqnames,
@@ -41,7 +41,7 @@ get_query_position <- function(dat){
 #' @export
 #' @return data frame for target gene/ORF position
 get_target_position <- function(dat){
-  a <- as.data.frame(dat)
+  a <- BiocGenerics::as.data.frame(dat)
   data.frame(
     target=a$attr,
     tchrom=a$seqnames,
@@ -58,7 +58,7 @@ get_target_position <- function(dat){
 #' @export
 #' @return data frame for target mRNA position
 get_target_mRNA_position <- function(dat){
-  a <- as.data.frame(dat)
+  a <- BiocGenerics::as.data.frame(dat)
   data.frame(
     target=a$attr,
     target_trans=a$seqnames,
@@ -108,7 +108,7 @@ get_hits_info <- function(pair,con,quesp,tarsp,tarname){
 
   target_transoff_loc <- get_target_mRNA_position(tarsp[["transorfgff"]]) %>%
     merge(.,dplyr::rename(get_query_position(tarsp[["mRNA"]]),target_trans=seqid),by="target_trans",all.x=T) %>%
-    select(target_trans,target,tchrom=qchrom,tlocstart,tlocstop,tstrand=qstrand)
+    dplyr::select(target_trans,target,tchrom=qchrom,tlocstart,tlocstop,tstrand=qstrand)
 
   transtab <- pair[["aa2transorf.pval"]] %>%
     dplyr::filter(pval.adj < p2t_cutoff & alnrate > p2t_alncut) %>%

@@ -8,6 +8,8 @@ convert_FaFile_to_XStringSet(x, ...)
 }
 \arguments{
 \item{x}{indexed FASTA file}
+
+\item{...}{extra arguments}
 }
 \value{
 XStringSet object

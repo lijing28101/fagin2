@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1620265947363.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "5667E846",
+    "lastKnownWriteTime" : 1620266831,
+    "last_content_update" : 1620266831215,
+    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/util.R",
+    "project_path" : "R/util.R",
+    "properties" : {
+        "cursorPosition" : "33,0",
+        "scrollLine" : "14"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

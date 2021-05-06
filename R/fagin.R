@@ -34,8 +34,9 @@ NULL
 run_fagin <- function(con){
 
   set.seed(211)
-
-  dir.create(con@archive)
+  if(!file.exists(con@archive)){
+    dir.create(con@archive)
+  }
 
   all_species <- get_species(con)
 

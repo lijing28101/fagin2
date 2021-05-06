@@ -13,7 +13,7 @@ aln_xy(x, y, substitution_matrix = "BLOSUM80", simulation = FALSE)
 
 \item{substitution_matrix}{a method used for alignment}
 
-\item{similation}{a logical variable indicating whether want to simulation}
+\item{simulation}{a logical variable indicating whether want to simulation}
 }
 \value{
 a list of alignment result

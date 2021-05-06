@@ -11,7 +11,10 @@ gene_check(gff, quename, gene_tag)
 
 \item{quename}{name of focal species}
 
-\item{gene_tab}{a list of genes as character vector}
+\item{gene_tag}{a list of genes as character vector}
+}
+\value{
+warning message
 }
 \description{
 Check gene list

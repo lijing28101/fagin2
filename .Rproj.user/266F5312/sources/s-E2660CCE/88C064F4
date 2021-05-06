@@ -1,24 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1620243369802.000,
+    "created" : 1620266029093.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "47B0C6B6",
-    "lastKnownWriteTime" : 1620242949,
-    "last_content_update" : 1620242949,
-    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/functions_indels.R",
-    "project_path" : "R/functions_indels.R",
+    "id" : "88C064F4",
+    "lastKnownWriteTime" : 1620246768,
+    "last_content_update" : 1620246768,
+    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/z_tree.R",
+    "project_path" : "R/z_tree.R",
     "properties" : {
-        "cursorPosition" : "22,0",
+        "cursorPosition" : "9,0",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 3,
+    "relative_order" : 18,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

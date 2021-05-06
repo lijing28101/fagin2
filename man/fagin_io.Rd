@@ -5,7 +5,6 @@
 \alias{load_dna}
 \alias{load_gene_list}
 \alias{load_tree}
-\alias{.label}
 \title{Input and output}
 \usage{
 load_dna(filename)
@@ -13,8 +12,6 @@ load_dna(filename)
 load_gene_list(filename)
 
 load_tree(filename)
-
-.label(label, ...)
 }
 \arguments{
 \item{filename}{filename}

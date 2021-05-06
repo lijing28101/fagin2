@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1620265911995.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "238650733",
+    "id" : "6ABA9A5D",
+    "lastKnownWriteTime" : 1620267263,
+    "last_content_update" : 1620267263269,
+    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/gff_handle.R",
+    "project_path" : "R/gff_handle.R",
+    "properties" : {
+        "cursorPosition" : "21,40",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 12,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

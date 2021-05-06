@@ -12,6 +12,8 @@ AA_aln(queseq, tarseq, nsims = 10000, ...)
 \item{tarseq}{a vector of target sequences}
 
 \item{nsims}{a number for simulation}
+
+\item{...}{extra arguments}
 }
 \value{
 a list of alignment result and calculate significance

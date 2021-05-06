@@ -8,6 +8,8 @@ get_gff_from_txdb(x, ...)
 }
 \arguments{
 \item{x}{TxDb object}
+
+\item{...}{extra argument}
 }
 \value{
 synder object

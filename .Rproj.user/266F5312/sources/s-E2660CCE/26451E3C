@@ -1,24 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1620243369802.000,
+    "created" : 1620265762500.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
     "hash" : "0",
-    "id" : "47B0C6B6",
-    "lastKnownWriteTime" : 1620242949,
-    "last_content_update" : 1620242949,
-    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/functions_indels.R",
-    "project_path" : "R/functions_indels.R",
+    "id" : "26451E3C",
+    "lastKnownWriteTime" : 1620267157,
+    "last_content_update" : 1620267157717,
+    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/class_summarize.R",
+    "project_path" : "R/class_summarize.R",
     "properties" : {
-        "cursorPosition" : "22,0",
+        "cursorPosition" : "11,33",
         "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 3,
+    "relative_order" : 7,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

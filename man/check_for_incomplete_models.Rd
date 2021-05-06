@@ -7,9 +7,9 @@
 check_for_incomplete_models(phases, label = NULL)
 }
 \arguments{
-\item{label}{string}
+\item{phases}{string}
 
-\item{phase}{string}
+\item{label}{string}
 }
 \value{
 warning message

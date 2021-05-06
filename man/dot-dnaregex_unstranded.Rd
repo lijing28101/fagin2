@@ -12,6 +12,8 @@
 \item{pattern}{character regular expression}
 
 \item{sinfo}{SequenceInfo}
+
+\item{...}{extra arguments}
 }
 \value{
 GRanges object

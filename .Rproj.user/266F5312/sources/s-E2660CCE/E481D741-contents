@@ -23,8 +23,6 @@ align_by_map(
 \item{queries}{a vector of gene names for query sequence}
 
 \item{permute}{a logical variable indicating whether want to permute}
-
-\item{...}{extra arguments}
 }
 \value{
 a list of protein alignment result and calculate significance

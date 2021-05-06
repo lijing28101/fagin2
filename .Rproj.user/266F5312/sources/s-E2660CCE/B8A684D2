@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1620265858978.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2106319386",
+    "id" : "B8A684D2",
+    "lastKnownWriteTime" : 1620267189,
+    "last_content_update" : 1620267189808,
+    "path" : "C:/Users/jingli/github/fagin2/fagin2/R/functions_derive.R",
+    "project_path" : "R/functions_derive.R",
+    "properties" : {
+        "cursorPosition" : "59,29",
+        "scrollLine" : "40"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 11,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

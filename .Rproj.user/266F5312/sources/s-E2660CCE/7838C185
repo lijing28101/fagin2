@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "115163165",
     "id" : "7838C185",
-    "lastKnownWriteTime" : 1620264892,
-    "last_content_update" : 1620264892617,
+    "lastKnownWriteTime" : 1620265489,
+    "last_content_update" : 1620265489162,
     "path" : "C:/Users/jingli/github/fagin2/fagin2/R/fagin.R",
     "project_path" : "R/fagin.R",
     "properties" : {
-        "cursorPosition" : "94,0",
-        "scrollLine" : "73"
+        "cursorPosition" : "38,3",
+        "scrollLine" : "21"
     },
     "read_only" : false,
     "read_only_alternatives" : [

@@ -30,6 +30,10 @@ summarize_syn(x)
 }
 \arguments{
 \item{x}{An object to summarized}
+
+\item{phases}{number or ".' for phase}
+
+\item{aa}{protein sequence}
 }
 \description{
 Summarize functions

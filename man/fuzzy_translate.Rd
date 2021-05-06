@@ -8,6 +8,8 @@ fuzzy_translate(dna, label = NULL)
 }
 \arguments{
 \item{dna}{DNAStringSet}
+
+\item{label}{string}
 }
 \value{
 AAStringSet

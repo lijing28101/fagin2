@@ -40,7 +40,10 @@ Imports:
     tibble,
     tidyr,
     yaml,
-    openxlsx
+    openxlsx,
+    doParallel,
+    parallel,
+    foreach
 Remotes:
     arendsee/synder
 Suggests:

@@ -213,7 +213,7 @@ con <- get_yeast_config() # create revised configuration
 # overwrite.result=TRUE, when you add new target species in con for comparison
 # overwrite.result=FALSE, only when you add new focal species, but not add new target species for previous focal
 m <- run_fagin(con, overwrite.result=T) # without parallel
-m <- run_fagin(con, cores=16) # run loading data and comparison in parallel
+m <- run_fagin_parallel(con, cores=16) # run loading data and comparison in parallel
 ```
 
 **Note: Fagin will save the input data for each individual species, and pair of focal-target comparison as rds file for reuse. `run_fagin` and `run_fagin_parallel` will skip to load input data or pairwise comparison if the rds file already existed in the archive dir. You should delete the rds file for a specific species or pairwise comparison if you want to re-analysis that step.**

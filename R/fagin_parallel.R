@@ -14,7 +14,7 @@ NULL
 
 run_fagin_parallel <- function(con, cores=16){
 
-  cl <- makeCluster(cores) #not to overload your computer
+  cl <- makeCluster(cores, outfile="") #not to overload your computer
   registerDoParallel(cl)
 
   if(!file.exists(con@archive)){

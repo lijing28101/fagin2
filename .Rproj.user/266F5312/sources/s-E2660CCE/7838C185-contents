@@ -10,7 +10,7 @@
 #' @importFrom rtracklayer readGFF
 #' @importFrom stats quantile median sd density p.adjust
 #' @importFrom CNEr first second GRangePairs
-#' @importFrom magrittr is_greater_than set_names "%>%" "%T>%"
+#' @importFrom magrittr is_greater_than set_names "%>%" "%T>%" "%$%"
 #' @importFrom dplyr group_by summarize mutate select filter arrange rename
 #' @importFrom Biostrings subseq vcountPattern alphabetFrequency pairwiseAlignment reverseComplement pattern subject translate writeXStringSet
 #' @importFrom Rsamtools scanFa getSeq indexFa FaFile

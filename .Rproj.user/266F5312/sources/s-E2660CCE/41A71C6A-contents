@@ -150,7 +150,7 @@ get_yeast_config <- function(){
   con@synder@offsets = c(1L,1L) # offsets for mummer, c(0L,1L) for satsuma
   con@synder@trans = "p" # percent identity transform (0-100), or "d" for proportion transform (0-1)
   # alnrate is the proportion of target sequence match to query sequence for alignment
-  # default cutoff the alnrate is 0
+  # default cutoff for alnrate are 0
   con@alignment@alnrate@prot2prot=0.5 # protein vs protein
   con@alignment@alnrate@prot2allorf=0.5 # protein vs all ORF
   con@alignment@alnrate@prot2transorf=0.5 #protein vs ORF on the mRNA

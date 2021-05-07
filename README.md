@@ -219,7 +219,7 @@ or
 
 # cores: number of cores used for parallel steps, recommend for large data
 # type: "FORK" shared memory, only for linux and OS system, "PSOCK" for all system. Default: "FORK"
-m <- run_fagin_parallel(con, cores=16, type="FORK") # run loading data and comparison in parallel, 13 min for sample data
+m <- run_fagin_parallel(con, cores=16, cl.type="FORK") # run loading data and comparison in parallel, 13 min for sample data
 ```
 
 **Note: Fagin will save the input data for each individual species, and pair of focal-target comparison as rds file for reuse. `run_fagin` and `run_fagin_parallel` will skip to load input data or pairwise comparison if the rds file already existed in the archive dir. You should delete the rds file for a specific species or pairwise comparison if you want to re-analysis that step.**

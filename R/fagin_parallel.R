@@ -15,6 +15,7 @@ run_fagin_parallel <- function(con){
 
   #cl <- makeCluster(cores) #not to overload your computer
   #registerDoParallel(cl)
+  .GlobalEnv$con=con
 
   if(!file.exists(con@archive)){
     dir.create(con@archive)

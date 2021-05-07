@@ -11,10 +11,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2
 Depends: 
-    R (>= 3.6.3),
-    doParallel,
-    parallel,
-    foreach
+    R (>= 3.6.3)
 Imports:
     BiocParallel,
     Biostrings,
@@ -44,7 +41,10 @@ Imports:
     tibble,
     tidyr,
     yaml,
-    openxlsx
+    openxlsx,
+    doParallel,
+    parallel,
+    foreach
 Remotes:
     arendsee/synder
 Suggests:

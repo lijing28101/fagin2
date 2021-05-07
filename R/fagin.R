@@ -63,7 +63,7 @@ run_fagin <- function(con, overwrite.result=TRUE){
 
       message("Working on the focal species: ", focal)
 
-      target_species <- setdiff(all_species, focal)
+      target_species=names(con@input@syn[[focal]])
       quesp <- readRDS(paste0(con@archive,"/",focal,"_data.rds"))
 
       feature_focal <- data.frame()

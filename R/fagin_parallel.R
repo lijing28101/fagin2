@@ -8,14 +8,14 @@ NULL
 #' Run fagin analysis
 #'
 #' @param con configuration
+#' @param cores number of cpu to be used
 #' @export
 #' @return a list of result for each pairwise of focal and target species and save result as excel file
 
-run_fagin_parallel <- function(con){
+run_fagin_parallel <- function(con,cores=16){
 
-  #cl <- makeCluster(cores) #not to overload your computer
-  #registerDoParallel(cl)
-  .GlobalEnv$con=con
+  cl <- makeCluster(cores) #not to overload your computer
+  registerDoParallel(cl)
 
   if(!file.exists(con@archive)){
     dir.create(con@archive)
@@ -24,8 +24,8 @@ run_fagin_parallel <- function(con){
   all_species <- get_species(con)
 
   # Step 1. load species
-  foreach(species = all_species) %dopar% {
-
+  foreach(species = all_species, .export=c("con")) %dopar% {
+    #.GlobalEnv$con = con
     if(!file.exists(paste0(con@archive,"/",species,"_data.rds"))){
       load_species(species,con)
     }
@@ -85,6 +85,6 @@ run_fagin_parallel <- function(con){
   }
 
   final_result
-  #stopCluster(cl)
+  stopCluster(cl)
 
 }

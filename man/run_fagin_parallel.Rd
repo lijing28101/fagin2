@@ -4,12 +4,14 @@
 \alias{run_fagin_parallel}
 \title{Run fagin analysis}
 \usage{
-run_fagin_parallel(con, cores = 16)
+run_fagin_parallel(con, cores = 16, cl.type = "FORK")
 }
 \arguments{
 \item{con}{configuration}
 
 \item{cores}{number of cpu to be used}
+
+\item{type}{cluster type, default is "FORK", Windows should set "PSOCK"}
 }
 \value{
 a list of result for each pairwise of focal and target species and save result as excel file

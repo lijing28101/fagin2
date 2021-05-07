@@ -9,12 +9,13 @@ NULL
 #'
 #' @param con configuration
 #' @param cores number of cpu to be used
+#' @param type cluster type, default is "FORK", Windows should set "PSOCK"
 #' @export
 #' @return a list of result for each pairwise of focal and target species and save result as excel file
 
-run_fagin_parallel <- function(con,cores=16){
+run_fagin_parallel <- function(con,cores=16,cl.type="FORK"){
 
-  cl <- makeCluster(cores) #not to overload your computer
+  cl <- makeCluster(cores, type = cl.type) #not to overload your computer
   registerDoParallel(cl)
 
   if(!file.exists(con@archive)){

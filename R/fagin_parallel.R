@@ -24,8 +24,8 @@ run_fagin_parallel <- function(con,cores=16){
   all_species <- get_species(con)
 
   # Step 1. load species
-  foreach(species = all_species, .export=c("con")) %dopar% {
-    #.GlobalEnv$con = con
+  foreach(species = all_species) %dopar% {
+    .GlobalEnv$con = con
     if(!file.exists(paste0(con@archive,"/",species,"_data.rds"))){
       load_species(species,con)
     }

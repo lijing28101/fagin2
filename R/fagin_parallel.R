@@ -1,4 +1,6 @@
 #' @import doParallel
+#' @import parallel
+#' @import foreach
 #'
 utils::globalVariables(c("%dopar%","%:%"))
 NULL
@@ -6,14 +8,13 @@ NULL
 #' Run fagin analysis
 #'
 #' @param con configuration
-#' @param cores number of cpu
 #' @export
 #' @return a list of result for each pairwise of focal and target species and save result as excel file
 
-run_fagin_parallel <- function(con, cores=16){
+run_fagin_parallel <- function(con){
 
-  cl <- makeCluster(cores) #not to overload your computer
-  registerDoParallel(cl)
+  #cl <- makeCluster(cores) #not to overload your computer
+  #registerDoParallel(cl)
 
   if(!file.exists(con@archive)){
     dir.create(con@archive)
@@ -83,6 +84,6 @@ run_fagin_parallel <- function(con, cores=16){
   }
 
   final_result
-  stopCluster(cl)
+  #stopCluster(cl)
 
 }

@@ -4,12 +4,10 @@
 \alias{run_fagin_parallel}
 \title{Run fagin analysis}
 \usage{
-run_fagin_parallel(con, cores = 16)
+run_fagin_parallel(con)
 }
 \arguments{
 \item{con}{configuration}
-
-\item{cores}{number of cpu}
 }
 \value{
 a list of result for each pairwise of focal and target species and save result as excel file

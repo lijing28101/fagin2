@@ -83,8 +83,8 @@ run_fagin_parallel <- function(con,cores=16){
     saveRDS(result_focal,paste0(con@archive,"/",con@input@focal_species[focal],"_result.rds"))
 
   }
-
-  final_result
   stopCluster(cl)
+  return(final_result)
+
 
 }

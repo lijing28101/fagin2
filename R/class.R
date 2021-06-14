@@ -338,9 +338,9 @@ validate_config <- function(con){
 
   for(species in con@input@focal_species){
 
-   if(! file.exists(con@input@gene_list[[species]])){
-     stop("Query gene list not found")
-   }
+    if(! file.exists(con@input@gene_list[[species]])){
+      stop("Query gene list (",species, ") not found")
+    }
   }
 
   # check whether the tree can be loaded

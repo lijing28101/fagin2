@@ -9,7 +9,7 @@ NULL
 #'
 #' @param con configuration
 #' @param cores number of cpu to be used
-#' @param type cluster type, default is "FORK", Windows should set "PSOCK"
+#' @param cl.type cluster type, default is "FORK", Windows should set "PSOCK"
 #' @export
 #' @return a list of result for each pairwise of focal and target species and save result as excel file
 

@@ -23,9 +23,9 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
   synder_out <- pair$synder_out
 
 
-  f_si_map <- overlapMap(gff=tarsp$mRNA, si=synder_out)
+  f_si_map <- pair$f_si_map
 
-  f_si_map_orf <- overlapMap(gff=tarsp$orfgff, si=synder_out)
+  f_si_map_orf <- pair$f_si_map_orf
 
   aa2aa <- align_by_map(
     queseq = quesp$faa,
@@ -45,23 +45,7 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
     substitution_matrix=subMat
   )
 
-  f_si_map_transorf <- tarsp$transorfgff %>%
-    {
-      data.frame(
-        seqid = GenomicRanges::seqnames(.),
-        orfid = GenomicRanges::mcols(.)$attr,
-        stringsAsFactors=FALSE
-      )
-    } %>%
-    merge(f_si_map, by.x="seqid", by.y="target") %>%
-    {
-      data.frame(
-        query = .$query,
-        target = .$orfid,
-        type = "transorf",
-        stringsAsFactors=FALSE
-      )
-    }
+  f_si_map_transorf <- pair$f_si_map_transorf
 
   aa2transorf <- align_by_map(
     queseq = quesp$faa,
@@ -101,7 +85,7 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
 
   }
 
-  tarseq <- Rsamtools::getSeq(x=tardna, CNEr::second(map))
+  tarseq <- pair$tarseq
   queseq <- quedna[qids]
   offset <- GenomicRanges::start(CNEr::second(map)) - 1
 
@@ -161,13 +145,18 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
 #' @param tarname a string of target species name
 #' @param pair existing pair
 #' @param prefix dir path for saving the new gene result
+#' @param gene_path path to the gene list
 #' @export
 #' @return a list of alignment result with pvalue, and save the list as rds file
-secondary_data_add <- function(con, quesp, tarsp, quename, tarname, pair, prefix){
-  gene_tag <- load_gene_list(con@input@gene_list[[quename]])
+secondary_data_add <- function(con, quesp, tarsp, quename, tarname, pair, prefix, gene_path){
+  gene_tag <- load_gene_list(gene_path)
   gene_check(quesp$mRNA, quename, gene_tag)
   pair <- add_gene(con, quesp, tarsp, quename, tarname, gene_tag, pair)
   pair <- calculate_match_significance(pair,con)
+  pair$feature <- merge_feature_table(con, pair, target)
+  if(!file.exists(paste0(con@archive,"/",prefix))){
+    dir.create(paste0(con@archive,"/",prefix))
+  }
   saveRDS(pair,paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))
   pair
 }
@@ -194,11 +183,20 @@ run_fagin_add <- function(con, prefix, cores=16,cl.type="FORK"){
 
       .GlobalEnv$con = con
 
-      quesp <- readRDS(paste0(con@archive,"/",focal,"_data.rds"))
-      tarsp <- readRDS(paste0(con@archive,"/",target,"_data.rds"))
-      pair <- readRDS(paste0(con@archive,"/",focal,"-",target,".rds"))
+      if(!file.exists(paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))){
 
-      pair <- secondary_data_add(con, quesp, tarsp, focal, target, pair, prefix)
+        quesp <- readRDS(paste0(con@archive,"/",focal,"_data.rds"))
+        tarsp <- readRDS(paste0(con@archive,"/",target,"_data.rds"))
+        pair <- readRDS(paste0(con@archive,"/",focal,"-",target,".rds"))
+
+        pair <- secondary_data_add(con, quesp, tarsp, focal, target, pair, prefix)
+
+      } else {
+
+      pair <- readRDS(paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))
+
+      }
+
 
       feature <- merge_feature_table(con, pair, target)
 

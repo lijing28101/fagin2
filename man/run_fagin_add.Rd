@@ -4,12 +4,14 @@
 \alias{run_fagin_add}
 \title{Add new gene list to fagin analysis}
 \usage{
-run_fagin_add(con, prefix, cores = 16, cl.type = "FORK")
+run_fagin_add(con, gene_path, prefix, cores = 16, cl.type = "FORK")
 }
 \arguments{
 \item{con}{configuration}
 
-\item{prefix}{dir path for saving the new gene result}
+\item{gene_path}{path to the gene list}
+
+\item{prefix}{path to dir for saving new result}
 
 \item{cores}{number of cpu to be used}
 

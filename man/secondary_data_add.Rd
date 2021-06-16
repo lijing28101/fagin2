@@ -4,16 +4,7 @@
 \alias{secondary_data_add}
 \title{Compare the new genes from focal species to target genome and calculate significance}
 \usage{
-secondary_data_add(
-  con,
-  quesp,
-  tarsp,
-  quename,
-  tarname,
-  pair,
-  prefix,
-  gene_path
-)
+secondary_data_add(con, quesp, tarsp, quename, tarname, pair, gene_path)
 }
 \arguments{
 \item{con}{configuration}
@@ -27,8 +18,6 @@ secondary_data_add(
 \item{tarname}{a string of target species name}
 
 \item{pair}{existing pair}
-
-\item{prefix}{dir path for saving the new gene result}
 
 \item{gene_path}{path to the gene list}
 }

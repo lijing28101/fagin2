@@ -144,20 +144,17 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
 #' @param quename a string of focal species name
 #' @param tarname a string of target species name
 #' @param pair existing pair
-#' @param prefix dir path for saving the new gene result
 #' @param gene_path path to the gene list
 #' @export
 #' @return a list of alignment result with pvalue, and save the list as rds file
-secondary_data_add <- function(con, quesp, tarsp, quename, tarname, pair, prefix, gene_path){
+secondary_data_add <- function(con, quesp, tarsp, quename, tarname, pair, gene_path){
   gene_tag <- load_gene_list(gene_path)
   gene_check(quesp$mRNA, quename, gene_tag)
   pair <- add_gene(con, quesp, tarsp, quename, tarname, gene_tag, pair)
   pair <- calculate_match_significance(pair,con)
   pair$feature <- merge_feature_table(con, pair, target)
-  if(!file.exists(paste0(con@archive,"/",prefix))){
-    dir.create(paste0(con@archive,"/",prefix))
-  }
-  saveRDS(pair,paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))
+
+  #saveRDS(pair,paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))
   pair
 }
 
@@ -165,12 +162,13 @@ secondary_data_add <- function(con, quesp, tarsp, quename, tarname, pair, prefix
 #' Add new gene list to fagin analysis
 #'
 #' @param con configuration
-#' @param prefix dir path for saving the new gene result
+#' @param prefix path to dir for saving new result
+#' @param gene_path path to the gene list
 #' @param cores number of cpu to be used
 #' @param cl.type cluster type, default is "FORK", Windows should set "PSOCK"
 #' @export
 #' @return a list of result for each pairwise of focal and target species and save result as excel file
-run_fagin_add <- function(con, prefix, cores=16,cl.type="FORK"){
+run_fagin_add <- function(con, gene_path, prefix, cores=16,cl.type="FORK"){
 
   cl <- makeCluster(cores, type = cl.type) #not to overload your computer
   registerDoParallel(cl)
@@ -183,19 +181,12 @@ run_fagin_add <- function(con, prefix, cores=16,cl.type="FORK"){
 
       .GlobalEnv$con = con
 
-      if(!file.exists(paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))){
 
         quesp <- readRDS(paste0(con@archive,"/",focal,"_data.rds"))
         tarsp <- readRDS(paste0(con@archive,"/",target,"_data.rds"))
         pair <- readRDS(paste0(con@archive,"/",focal,"-",target,".rds"))
 
-        pair <- secondary_data_add(con, quesp, tarsp, focal, target, pair, prefix)
-
-      } else {
-
-      pair <- readRDS(paste0(con@archive,"/",prefix,"/",quename,"-",tarname,".rds"))
-
-      }
+        pair <- secondary_data_add(con, quesp, tarsp, focal, target, pair, gene_path)
 
 
       feature <- merge_feature_table(con, pair, target)
@@ -217,6 +208,10 @@ run_fagin_add <- function(con, prefix, cores=16,cl.type="FORK"){
       result_focal[[i]] <- tabdf
     }
     final_result[[con@input@focal_species[focal]]] <- result_focal
+
+    if(!file.exists(paste0(con@archive,"/",prefix))){
+      dir.create(paste0(con@archive,"/",prefix))
+    }
 
     wb <- openxlsx::createWorkbook()
     openxlsx::addWorksheet(wb, "main")

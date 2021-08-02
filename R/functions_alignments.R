@@ -266,6 +266,17 @@ align_by_map <- function(
     map <- map[map$query %in% names(queseq),  ]
   }
 
+  count <- table(map$query)
+  large <- names(count[count>1500])
+  keep <- data.frame(query=NA,target=NA)
+  for( i in large){
+     df <- map[map$query==i,]
+     sample <- sample_n(df, 1500)
+     keep <- rbind(keep,sample)
+  }
+  final <- rbind(map[!(map$query %in% large),],keep[-1,])
+  map=final
+
   # Pair the focal gene to each target sequence
   queseq <- queseq[ match(map$query,  names(queseq)) ]
   tarseq <- tarseq[ match(map$target, names(tarseq)) ]

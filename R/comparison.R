@@ -169,7 +169,8 @@ compare_target_to_focal <- function(con, quesp, tarsp, quename, tarname, gene_ta
     ))
 
   }
-
+  
+  queries <- queries[queries %in% qids]
   tarseq <- Rsamtools::getSeq(x=tardna, CNEr::second(map))
   queseq <- quedna[qids]
   offset <- GenomicRanges::start(CNEr::second(map)) - 1

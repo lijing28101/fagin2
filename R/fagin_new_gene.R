@@ -85,6 +85,7 @@ add_gene <- function(con, quesp, tarsp, quename, tarname, gene_tag, pair){
 
   }
 
+  queries <- queries[queries %in% qids]
   tarseq <- pair$tarseq
   queseq <- quedna[qids]
   offset <- GenomicRanges::start(CNEr::second(map)) - 1

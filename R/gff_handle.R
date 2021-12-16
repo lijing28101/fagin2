@@ -56,12 +56,10 @@ load_gene_models <- function(file, seqinfo_=NULL){
     .
   } %>% {
 
-    if(!("Name" %in% colnames(.))){
-      .$Name <- .$ID
-    }
-
     if(!("ID" %in% colnames(.))){
-      .$ID <- .$name
+      .$ID <- .$Name
+    } else {
+      .$Name <- .$ID
     }
     .
 

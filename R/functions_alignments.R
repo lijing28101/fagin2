@@ -267,11 +267,11 @@ align_by_map <- function(
   }
 
   count <- table(map$query)
-  large <- names(count[count>1500])
+  large <- names(count[count>500])
   keep <- data.frame(query=NA,target=NA)
   for( i in large){
      df <- map[map$query==i,]
-     sample <- sample_n(df, 1500)
+     sample <- dplyr::sample_n(df, 500)
      keep <- rbind(keep,sample)
   }
   final <- rbind(map[!(map$query %in% large),],keep[-1,])

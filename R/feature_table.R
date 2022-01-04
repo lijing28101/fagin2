@@ -187,7 +187,7 @@ merge_feature_table <- function(con, pair, tarname){
   labels <- labelTreeToTable(root,feature_table) %>%
     dplyr::select(seqid, homology_class=secondary) %>% dplyr::mutate(homology_class = name_conversion[homology_class])
   final <- merge(feature_table, labels, by='seqid')
-  final$homology_class[final$homology_class=="A_trn" & final$cds==T] <- "N_cds"
+  #final$homology_class[final$homology_class=="A_trn" & final$cds==T] <- "N_cds"
   final$target_species <- tarname
   final
 }
